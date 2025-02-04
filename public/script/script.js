@@ -50,3 +50,9 @@ button1.addEventListener("click", function() {
 body.classList.toggle("dark-mode");
   
 });
+
+
+document.getElementById('foto').addEventListener('click', function() {
+  var infoSection = document.getElementById('info');
+  infoSection.classList.toggle('open'); 
+});
