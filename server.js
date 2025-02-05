@@ -15,6 +15,11 @@ const personResponse = await fetch('https://fdnd.directus.app/items/person/' + p
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 const personResponseJSON = await personResponse.json()
 
+
+const personInfo = personResponseJSON.data
+
+personInfo.custom = JSON.parse(personInfo.custom)
+
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
 // console.log(personResponseJSON)
@@ -43,6 +48,17 @@ app.get('/', async function (request, response) {
    response.render('index.liquid', {person: personResponseJSON.data})
 })
 
+// Dit is een nieuwe route voor een view. dus een nieuwe pagina
+app.get('/oefenen', async function (request, response) {
+  // Render index.liquid uit de Views map en geef de opgehaalde data mee, in een variabele genaamd person
+  response.render('oefenen.liquid', {person: personResponseJSON.data})
+})
+
+app.get('/', async function (request, response) {
+  // Render index.liquid uit de Views map en geef de opgehaalde data mee, in een variabele genaamd person
+  response.render('index.liquid', {personInfo: personResponseJSON.custom})
+})
+
 // Had je meer pagina's in je oude visitekaartje? Zoals een contact.html?
 // Maak daar dan meer Routes voor aan, en koppel ze aan Views
 // app.get('/contact', function (request, response) {
@@ -52,10 +68,17 @@ app.get('/', async function (request, response) {
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
-app.post('/', async function (request, response) {
+app.post('/', async function (request, response) { 
   // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
   // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
   response.redirect(303, '/')
+})
+
+// dit is een niewe post voor de nieuwe route
+app.post('/oefenen.liquid', async function (request, response) {
+  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
+  // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
+  response.redirect(303, '/oefenen')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

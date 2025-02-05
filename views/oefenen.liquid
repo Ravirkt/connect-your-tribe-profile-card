@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="/">terug gaan naar index</a>
+
+
+    <h1>Data-Driven Web</h1>
+<p>Ik ben dus {{ person.name }}</p>
+<p>Ik ben dus {{ person.birthdate | date: "%d-%m-%y" }}</p>
+
+
+<p>Het is vandaag {{ 'now' | date: "%d-%m-%y" }}</p>
+
+<p> {{ person.custom.hometown  }}</p>
+<p> {{ personResponseJSON  }}</p>
+
+
+<p>Ik ben dus {{ person | json  }}</p>
+
+
+</body>
+</html>
