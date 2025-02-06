@@ -1,30 +1,87 @@
 {% render 'partials/head.liquid' %}
 
 
+<main>
 
-
-
-
-
-  <main class="student-card">
-    <section>
-      <div class="card-content">
-        <img class="hva-logo" src="./assets/HVA-logo.webp" alt="hva logo">
-        <h1>Collegekaart / student card</h1>
-        <p>stud.nr / . no. {{ person.custom.student_number  }}</p>
-        <p>Exp. dat. SEP 2030</p>
-        <p>{{ person.name }}</p>
-        <p class="card-number">Pas nr. / no. 00183974739</p>
-      </div>
+<div class="apple-window">
+    <section class="header">
+      <button class="close"></button>
+      <button class="minimize"></button>
+      <button class="open"></button>
+      <h4>Visitekaart</h4>
     </section>
-  
-    <img class="avatar" src="./assets/avataaars.svg" alt="Avatar">
 
-    <span class="shape"></span>
-  </main>
+    <div class="window-content">
+      <figure class="folder">
+        <img src="./assets/avataaars.svg">
+        <figcaption>{{ person.name }}</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/maps.png"><span></span>
+        <figcaption>{{ person.custom.hometown }}</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/gh.png">
+        <figcaption><a href="https://github.com/Ravirkt">{{person.github_handle}}</a></figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/calender.png">
+        <figcaption>{{ person.birthdate | date: "%d %b" }}</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/folder.png">
+        <figcaption><a href="#">Github Repository</a></figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/vscode.png">
+        <figcaption>Visual Studio Code</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/folder.png">
+        <figcaption>School Notes</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets//teams.png">
+        <figcaption>Microsoft Teams</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets//figma.png">
+        <figcaption>Figma</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/appstore.png">
+        <figcaption>App Store</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/safari.png">
+        <figcaption><a href="{{person.website}}">I Love Web</a></figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/spotify.png">
+      <figcaption>{{person.custom.music}}</figcaption>
+      </figure>
+
+      <figure class="folder">
+        <img src="./assets/fotos.png">
+        <figcaption>Photos</figcaption>
+      </figure>
+    </div>
+</div>
+</main>
   
-  
-  <script src="script/script.js"></script>
+
+  <script src="script/script.js"></script> 
   
 
 {% render 'partials/foot.liquid' %}
